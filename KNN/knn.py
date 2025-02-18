@@ -1,5 +1,5 @@
 import numpy as np
-from utility import euclidean_distance
+from utility.euclidean_distance import calculate_euclidean_distance
 from collections import Counter
 class KNN:
 
@@ -17,7 +17,7 @@ class KNN:
     def _predict(self, x):
 
         #Calculate the distance between x and all training datapoints
-        distances = [self.euclidean_distances(x, x_train) for x_train in self.X_train]
+        distances = [calculate_euclidean_distance(x, x_train) for x_train in self.X_train]
 
         #get the k nearest data samples and their labels
         k_indices = np.argsort(distances)[:self.k]
